@@ -11,6 +11,7 @@ Easy build for ORB Slam 2 on Windows from Linux
 - Press Generate. Error: CMake Error at CMakeLists.txt:32 (message):  OpenCV > 2.4.3 not found.
 - Check Cmakelists. Comment find_package and add set.
 
+```
 # find_package(OpenCV 3.0 QUIET)
 # if(NOT OpenCV_FOUND)
    # find_package(OpenCV 2.4.3 QUIET)
@@ -19,6 +20,7 @@ Easy build for ORB Slam 2 on Windows from Linux
    # endif()
 # endif()
 set(OpenCV_INCLUDE_DIRS C:/Lib/OpenCV32/opencv/build/include)
+```
 
 - Open the resulting project in the build directory in Visual Studio
 - Change build type to Release (in white box up top, should initially say Debug)
