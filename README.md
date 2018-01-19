@@ -27,9 +27,15 @@ set(OpenCV_LIBS C:/Lib/OpenCV32/opencv/build/x64/vc14/lib/opencv_world320.lib)
 - Change build type to Release (should initially say Debug)
 - Project(DBoW2 not ALL_BUILD) -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
 - Go to C/C++ Tab -> Code Generation and change Runtime Library to Multi-threaded (/MT)
-- Build ALL_BUILD. You should get lots of warnings but no errors
+- Right click All_BUILD and press Build. You should get lots of warnings.
+- One error . Change to stdint
+```
+1>D:\Code\Visual-SLAM\Thirdparty\DBoW2\DBoW2\FORB.cpp(16): fatal error C1083: Cannot open include file: 'stdint-gcc.h': No such file or directory
+```
+-These result in a lib file.
 
 2. Make a directory called build in orbslam-windows/Thirdparty/g2o
+- Use the lib file in this repo directly or follow
 - Run CMake GUI and set source code to orbslam-windows/Thirdparty/g2o and where to build the binaries to orbslam-windows/Thirdparty/g2o/build
 - Press Configure and choose Visual Studio 14 2015 Win64 or Visual Studio 12 2013 Win64
 - Press Generate
@@ -41,6 +47,7 @@ set(OpenCV_LIBS C:/Lib/OpenCV32/opencv/build/x64/vc14/lib/opencv_world320.lib)
 - Build ALL_BUILD.
 
 3. Make a directory called build in orbslam-windows/Thirdparty/Pangolin
+- Use the lib file in this repo directly or follow
 - Run CMake GUI and set source code to orbslam-windows/Thirdparty/Pangolin and where to build the binaries to orbslam-windows/Thirdparty/Pangolin/build
 - Press Configure and choose Visual Studio 14 2015 Win64 or Visual Studio 12 2013 Win64. You'll have a lot of RED and a lot of things that say DIR-NOTFOUND but as long as the window at the bottom says Configuring Done you're fine
 - Press Generate
@@ -49,14 +56,15 @@ set(OpenCV_LIBS C:/Lib/OpenCV32/opencv/build/x64/vc14/lib/opencv_world320.lib)
 - Build ALL_BUILD. You'll have an error by project testlog that says "cannot open input file 'pthread.lib'" but that doesn't matter cause we don't use testlog. Everything else should build fine, i.e., you should have
 ========== Build: 18 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
 
-3. Make a directory called build in orbslam-windows
+4. Make a directory called build in orbslam-windows
+- Cmakeists: Build type: Debug, Release, RelWithDebInfo and MinSizeRel
 - Run CMake GUI and set source code to orbslam-windows and where to build the binaries to orbslam-windows/build
 - Press Configure and choose Visual Studio 14 2015 Win64 or Visual Studio 12 2013 Win64
 - Press Generate
-- Open the resulting project in the build directory in Visual Studio
-- Change build type to Release (in white box up top, should initially say Debug)
-- Right click on ORB_SLAM2 project -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
-- Go to C/C++ Tab -> Code Generation and change Runtime Library to Multi-threaded (/MT)
+#- Open the resulting project in the build directory in Visual Studio
+#- Change build type to Release (in white box up top, should initially say Debug)
+#- Right click on ORB_SLAM2 project -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
+#- Go to C/C++ Tab -> Code Generation and change Runtime Library to Multi-threaded (/MT)
 
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
 
