@@ -20,11 +20,12 @@ Easy build for ORB Slam 2 on Windows from Linux
    # endif()
 # endif()
 set(OpenCV_INCLUDE_DIRS C:/Lib/OpenCV32/opencv/build/include)
+set(OpenCV_LIBS C:/Lib/OpenCV32/opencv/build/x64/vc14/lib/opencv_world320.lib)
 ```
 
 - Open the resulting project in the build directory in Visual Studio
-- Change build type to Release (in white box up top, should initially say Debug)
-- Right click on DBoW2 project -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
+- Change build type to Release (should initially say Debug)
+- Project(DBoW2 not ALL_BUILD) -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
 - Go to C/C++ Tab -> Code Generation and change Runtime Library to Multi-threaded (/MT)
 - Build ALL_BUILD. You should get lots of warnings but no errors
 
