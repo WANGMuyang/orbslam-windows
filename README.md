@@ -13,10 +13,10 @@ Easy build for ORB Slam 2 on Windows from Linux
 
 # find_package(OpenCV 3.0 QUIET)
 # if(NOT OpenCV_FOUND)
-   # find_package(OpenCV 2.4.3 QUIET)
-   # if(NOT OpenCV_FOUND)
-      # message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
-   # endif()
+   # find_package(OpenCV 2.4.3 QUIET)
+   # if(NOT OpenCV_FOUND)
+      # message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
+   # endif()
 # endif()
 set(OpenCV_INCLUDE_DIRS C:/Lib/OpenCV32/opencv/build/include)
 
