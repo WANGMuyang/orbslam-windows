@@ -1,10 +1,25 @@
 # ORB_SLAM2_Windows
-Easy build for ORB Slam 2 on Windows
+Easy build for ORB Slam 2 on Windows from Linux
 
-1. Make a directory called build in orbslam-windows/Thirdparty/DBoW2
+1. Copy ORB from Linux to Windows
+
+2. Build DBoW
+- Delete build and lib folder which was generated when building DBoW2 in Linux
+- Make a directory called for Cmake orbslam-windows/Thirdparty/DBoW2/build
 - Run CMake GUI and set source code to orbslam-windows/Thirdparty/DBoW2 and where to build the binaries to orbslam-windows/Thirdparty/DBoW2/build
 - Press Configure and choose Visual Studio 14 2015 Win64 or Visual Studio 12 2013 Win64
-- Press Generate
+- Press Generate. Error: CMake Error at CMakeLists.txt:32 (message):  OpenCV > 2.4.3 not found.
+- Check Cmakelists. Comment find_package and add set.
+
+# find_package(OpenCV 3.0 QUIET)
+# if(NOT OpenCV_FOUND)
+   # find_package(OpenCV 2.4.3 QUIET)
+   # if(NOT OpenCV_FOUND)
+      # message(FATAL_ERROR "OpenCV > 2.4.3 not found.")
+   # endif()
+# endif()
+set(OpenCV_INCLUDE_DIRS C:/Lib/OpenCV32/opencv/build/include)
+
 - Open the resulting project in the build directory in Visual Studio
 - Change build type to Release (in white box up top, should initially say Debug)
 - Right click on DBoW2 project -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
