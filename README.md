@@ -108,7 +108,10 @@ add
 
 14. d:\code\visual-slam\thirdparty\g2o\g2o\core\matrix_operations.h(51): fatal error C1001: An internal error has occurred in the compiler.
 Change it according to https://github.com/RainerKuemmerle/g2o/issues/91
-
+But Failed
+- Copy and replace file from https://github.com/RainerKuemmerle/g2o/blob/master/g2o/core/matrix_operations.h
+- VectorX not defined. Found it defined as VectorXd in newest version, change it to vectorXd
+-Too many errors. Decided to compile the newest version of G2O.
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
