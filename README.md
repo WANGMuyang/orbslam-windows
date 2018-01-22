@@ -55,6 +55,15 @@ set(OpenCV_LIBS C:/Lib/OpenCV32/opencv/build/x64/vc14/lib/opencv_world320.lib)
 - Change build type to Release (in white box up top, should initially say Debug)
 - Build ALL_BUILD. You'll have an error by project testlog that says "cannot open input file 'pthread.lib'" but that doesn't matter cause we don't use testlog. Everything else should build fine, i.e., you should have
 ========== Build: 18 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+Error occured when building Pangolin for glew. Use gitbash to do 
+```
+git clone https://github.com/stevenlovegrove/Pangolin.git
+cd Pangolin
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
 
 4. Make a directory called build in orbslam-windows
 - Cmakeists: Build type: Debug, Release, RelWithDebInfo and MinSizeRel
