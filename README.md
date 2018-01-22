@@ -95,6 +95,13 @@ add
   char buf[size_node]; 
   //change to
   char buf = new char[size_node]; 
+```
+
+12. >D:\Code\Visual-SLAM\src\MapPoint.cc(273): error C2131: expression did not evaluate to a constant
+```
+
+```
+
 
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
 
