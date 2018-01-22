@@ -76,7 +76,7 @@ cmake --build .
 #- Go to C/C++ Tab -> Code Generation and change Runtime Library to Multi-threaded (/MT)
 
 5. comment //PANGOLIN_DEPRECATED;
-
+6. #define M_PI 3.14159265358979323846
 
 
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
