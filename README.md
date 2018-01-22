@@ -75,6 +75,10 @@ cmake --build .
 #- Right click on ORB_SLAM2 project -> Properties -> General: change Target Extension to .lib and Configuration Type to Static Library (.lib)
 #- Go to C/C++ Tab -> Code Generation and change Runtime Library to Multi-threaded (/MT)
 
+5. comment //PANGOLIN_DEPRECATED;
+
+
+
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
