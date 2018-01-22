@@ -99,8 +99,11 @@ add
 
 12. >D:\Code\Visual-SLAM\src\MapPoint.cc(273): error C2131: expression did not evaluate to a constant
 ```
-
+-    const size_t N = vDescriptors.size();		 +    size_t N = vDescriptors.size();
+ -		 +	std::vector<std::vector<float> > Distances;
+ -    float Distances[N][N];		 +	Distances.resize(N, vector<float>(N, 0));
 ```
+13. 1>d:\code\visual-slam\thirdparty\g2o\g2o\core\matrix_operations.h(51): fatal error C1001: An internal error has occurred in the compiler.
 
 
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
