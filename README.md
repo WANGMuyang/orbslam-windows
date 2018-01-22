@@ -106,6 +106,8 @@ add
 ```
 13. 1>d:\code\visual-slam\thirdparty\g2o\g2o\core\matrix_operations.h(51): fatal error C1001: An internal error has occurred in the compiler.
 
+14. d:\code\visual-slam\thirdparty\g2o\g2o\core\matrix_operations.h(51): fatal error C1001: An internal error has occurred in the compiler.
+Change it according to https://github.com/RainerKuemmerle/g2o/issues/91
 
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
 
