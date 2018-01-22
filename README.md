@@ -77,7 +77,24 @@ cmake --build .
 
 5. comment //PANGOLIN_DEPRECATED;
 6. #define M_PI 3.14159265358979323846
-
+7. 
+- update cmakelist.txt with will call thirdparty lib(g2o and DBoW2) cmakelist.txt so that it will avoid individual build process separately.
+8. PANGOLIN_DEPRECATED ,turned out that multiple include directory was linked to platform.h
+9. removed usleep with std:thread::sleep_for() 
+```
+        //usleep(1000);
+		std::this_thread::sleep_for(std::chrono::milliseconds(1));
+```
+10 . error C2039: 'back_inserter': is not a member of 'std'  
+add
+```
+#include <iterator>
+```
+11. >D:\Code\Visual-SLAM\Thirdparty/DBoW2/DBoW2/TemplatedVocabulary.h(1488): error C2131: expression did not evaluate to a constant
+```
+  char buf[size_node]; 
+  //change to
+  char buf = new char[size_node]; 
 
 I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
 
