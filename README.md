@@ -124,9 +124,24 @@ qmake
 mingw32-make
 ```
 - Above command prompt method failed. Try Qt creator
-##QtCreator: open the QGLViewer/QGLViewer.pro project file and "build all".  
-#Then copy the generated QGLViewer2.dll and QGLViewer2d.dll to a system shared directory such as C:\Windows\System32. 
-##An alternative is to copy the dll in every executable's directory.
+** QtCreator: open the QGLViewer/QGLViewer.pro project file and "build all".  
+** Then copy the generated QGLViewer2.dll and QGLViewer2d.dll to a system shared directory such as C:\Windows\System32. 
+An alternative is to copy the dll in every executable's directory.
+
+
+
+16. Compile g2o after 15.  
+- Change cmake path regarding to Qt and LibQViewer
+-Use MSBuild Command Prompt for VS2015
+```
+D:
+cd D:\Code\Visual-SLAM\Thirdparty\g2o\build
+msbuild g2o.sln /p:Configuration=RelWithDebInfo /maxcpucount
+```
+
+17.Recompile my program. (See 4.)
+
+
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
 - If you're lucky, that will take few minutes then successfully build!
