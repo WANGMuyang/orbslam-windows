@@ -124,9 +124,9 @@ qmake
 mingw32-make
 ```
 - Above command prompt method failed. Try Qt creator
-**QtCreator: open the QGLViewer/QGLViewer.pro project file and "build all".  
-*Then copy the generated QGLViewer2.dll and QGLViewer2d.dll to a system shared directory such as C:\Windows\System32. 
-**An alternative is to copy the dll in every executable's directory.
+##QtCreator: open the QGLViewer/QGLViewer.pro project file and "build all".  
+#Then copy the generated QGLViewer2.dll and QGLViewer2d.dll to a system shared directory such as C:\Windows\System32. 
+##An alternative is to copy the dll in every executable's directory.
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
 - If you're lucky, that will take few minutes then successfully build!
