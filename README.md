@@ -112,7 +112,19 @@ But Failed
 - Copy and replace file from https://github.com/RainerKuemmerle/g2o/blob/master/g2o/core/matrix_operations.h
 - VectorX not defined. Found it defined as VectorXd in newest version, change it to vectorXd
 -Too many errors. Decided to compile the newest version of G2O.
-I had to disable warnings in Orb Slam because otherwise there were so many they crashed visual studio. You will still see a few but not very many
+
+
+15. Rebuild g2o following https://github.com/RainerKuemmerle/g2o/wiki/Build-on-Windows-with-MSVC
+- Install g2o dependencies: Qt and LibQGLViewer 
+- For Qt, install only 5.10
+- For LibQGLViewer. http://libqglviewer.com/installWindows.html. Use MinGW (available when you install the OpenSource Qt version): launch the Qt Command Prompt from the Start menu and type:
+```
+cd \path\to\libQGLViewer-2.7.1\QGLViewer
+qmake
+mingw32-make
+```
+- Above command prompt method failed. Try Qt creator
+--QtCreator: open the QGLViewer/QGLViewer.pro project file and "build all".  Then copy the generated QGLViewer2.dll and QGLViewer2d.dll to a system shared directory such as C:\Windows\System32. An alternative is to copy the dll in every executable's directory.
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
 - If you're lucky, that will take few minutes then successfully build!
