@@ -166,6 +166,23 @@ BlockSolver<Traits>::BlockSolver(std::unique_ptr<LinearSolverType> linearSolver)
 	1>d:\code\visual-slam\thirdparty\g2o\g2o\core\matrix_operations.h(51): fatal error C1001: An internal error has occurred in the compiler.
 1>  (compiler file 'msc1.cpp', line 1468)
 	INTERNAL COMPILER ERROR in 'C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe'
+-  http://blog.csdn.net/aptx704610875/article/details/51245143 said the problem is cuased by Chinese path. But I don't have one.
+
+23.Retry g2o 170730version in C:/Lib
+This time found  BLAS ,CHOLMOD not found
+
+http://blog.csdn.net/ye_shen_wei_mian/article/details/51864239
+http://blog.csdn.net/xiamentingtao/article/details/50100549
+http://blog.csdn.net/aptx704610875/article/details/51245143
+
+This might help. To be continued
+
+24. Follow https://github.com/RainerKuemmerle/g2o/issues/56
+Solve internal error. But 
+2>pangolin.lib(display.obj) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
+Need to rebuild pangolin to x64
+
+
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
 - If you're lucky, that will take few minutes then successfully build!
