@@ -140,8 +140,32 @@ msbuild g2o.sln /p:Configuration=RelWithDebInfo /maxcpucount
 ```
 
 17.Recompile my program. (See 4.)
-
-
+18.  fatal error C1083: Cannot open include file: 'Thirdparty/g2o/g2o/types/types_seven_dof_expmap.h': No such file or directory
+-#include"Thirdparty/g2o/g2o/types/sba/types_six_dof_expmap.h"
+-#include"Thirdparty/g2o/g2o/types/sim3/types_seven_dof_expmap.h"
+19. error C2244: 'g2o::BlockSolver<Traits>::BlockSolver': unable to match function definition to an existing declaration
+```
+template <typename Traits>
+BlockSolver<Traits>::BlockSolver(std::unique_ptr<LinearSolverType> linearSolver)
+    :   BlockSolverBase(),
+        _linearSolver(std::move(linearSolver))
+{
+  // workspace
+  _xSize=0;
+  _numPoses=0;
+  _numLandmarks=0;
+  _sizePoses=0;
+  _sizeLandmarks=0;
+  _doSchur=true;
+}	
+```
+20. Cannot solve 19 according to g2o author's reply because we need C++14 VS2017. So use older version of g20 https://github.com/RainerKuemmerle/g2o/releases/tag/20170730_git
+21. Redo 16.
+- Change some path in EXTERNAL
+22. Still cannot solve 19. Use the g2o in ORB_SLAM2
+	1>d:\code\visual-slam\thirdparty\g2o\g2o\core\matrix_operations.h(51): fatal error C1001: An internal error has occurred in the compiler.
+1>  (compiler file 'msc1.cpp', line 1468)
+	INTERNAL COMPILER ERROR in 'C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\x86_amd64\CL.exe'
 
 - Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
 - If you're lucky, that will take few minutes then successfully build!
