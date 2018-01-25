@@ -79,11 +79,14 @@ cmake --build .
 6. #define M_PI 3.14159265358979323846
 7. 
 - update cmakelist.txt with will call thirdparty lib(g2o and DBoW2) cmakelist.txt so that it will avoid individual build process separately.
-8. PANGOLIN_DEPRECATED ,turned out that multiple include directory was linked to platform.h
+8. PANGOLIN_DEPRECATED error
+-turned out that multiple include directory was linked to platform.h
+-Several ours spent
 9. removed usleep with std:thread::sleep_for() 
 ```
         //usleep(1000);
 		std::this_thread::sleep_for(std::chrono::milliseconds(1));
+		 std::this_thread::sleep_for(std::chrono::milliseconds(int((T - ttrack)*1e3));//remember to add int
 ```
 10 . error C2039: 'back_inserter': is not a member of 'std'  
 add
@@ -182,14 +185,21 @@ Solve internal error. But
 2>pangolin.lib(display.obj) : fatal error LNK1112: module machine type 'X86' conflicts with target machine type 'x64'
 Need to rebuild pangolin to x64
 
+25. Solve Pangolin problem
+- Use the previous built Pangolin  in C:/lib. Build .lib. Error occurred
+>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.Cpp.Platform.targets(55,5): error MSB8020: The build tools for Visual Studio 2010 (Platform Toolset = 'v100') cannot be found. To build using the v100 build tools, please install Visual Studio 2010 build tools.  Alternatively, you may upgrade to the current Visual Studio tools by selecting the Project menu or right-click the solution, and then selecting "Retarget solution".
+-Reuse Cmake. Rebuild in VS. Remember to set x64 release
 
 
-- Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
+26 Right click on the ORB_SLAM2 project (NOT ALL_BUILD) and click Build
 - If you're lucky, that will take few minutes then successfully build!
 
-If you want to build any of the examples (such as mono_euroc), do the following:
+27. build any of the examples:
 
 - Right click on that project and go to Properties -> C/C++ -> Code Generation, and change Runtime Library to Multi-threaded (/MT). Then press apply
 - Right click on it and press build
 
-Then you will find them, say if you do mono_, in (orbslam-windows\Examples\Monocular\Release)
+28. Unresolved external symbol in Pangolin.lib. All seems  to be related to glew
+-Replace linker -> input glew32.lib  to glew32s.lib.  dynamic to static
+
+29. Use http://blog.sina.com.cn/s/blog_6c92090d0101br8e.html to maximize Visual Studio Compiling speed
