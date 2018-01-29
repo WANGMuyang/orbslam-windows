@@ -692,3 +692,7 @@ Removed jpg png lib problem.
 3>pangolin.lib(uvc_mediafoundation.obj) : error LNK2019: unresolved external symbol CLSID_SystemDeviceEnum referenced in function "protected: bool __cdecl pangolin::UvcMediaFoundationVideo::FindDevice(int,int,int)" (?FindDevice@UvcMediaFoundationVideo@pangolin@@IEAA_NHHH@Z)
 3>pangolin.lib(uvc_mediafoundation.obj) : error LNK2019: unresolved external symbol CLSID_VideoInputDeviceCategory referenced in function "protected: bool __cdecl pangolin::UvcMediaFoundationVideo::FindDevice(int,int,int)" (?FindDevice@UvcMediaFoundationVideo@pangolin@@IEAA_NHHH@Z)
 ```
+36. Problems caused by UvcMediaFoundationVideo's cmakefiles
+Uncheck BUILD_MediaFoundation in cmake. This can make pangolin.lib error gone.
+
+37. 
