@@ -449,7 +449,7 @@ Removed jpg png lib problem.
 -Rebuild pangolin 62
 
 
-
+```
 3>Visual_SLAMs.lib(MapDrawer.obj) : error LNK2019: unresolved external symbol __imp_glBegin referenced in function "public: void __cdecl ORB_SLAM2::MapDrawer::DrawCurrentCamera(struct pangolin::OpenGlMatrix &)" (?DrawCurrentCamera@MapDrawer@ORB_SLAM2@@QEAAXAEAUOpenGlMatrix@pangolin@@@Z)
 3>Visual_SLAMs.lib(MapDrawer.obj) : error LNK2019: unresolved external symbol __imp_glColor3f referenced in function "public: void __cdecl ORB_SLAM2::MapDrawer::DrawCurrentCamera(struct pangolin::OpenGlMatrix &)" (?DrawCurrentCamera@MapDrawer@ORB_SLAM2@@QEAAXAEAUOpenGlMatrix@pangolin@@@Z)
 3>Visual_SLAMs.lib(MapDrawer.obj) : error LNK2019: unresolved external symbol __imp_glColor4f referenced in function "public: void __cdecl ORB_SLAM2::MapDrawer::DrawKeyFrames(bool,bool)" (?DrawKeyFrames@MapDrawer@ORB_SLAM2@@QEAAX_N0@Z)
@@ -625,7 +625,7 @@ Removed jpg png lib problem.
 3>glew.lib(glew.obj) : error LNK2019: unresolved external symbol __imp_wglGetCurrentDC referenced in function wglewContextInit
 3>glew.lib(glew.obj) : error LNK2019: unresolved external symbol __imp_wglGetProcAddress referenced in function _glewInit_GL_AMD_debug_output
 3>D:\Code\Visual_SLAM\Examples\Monocular\Release\mono_tum.exe : fatal error LNK1120: 115 unresolved externals
-
+```
 
 35. 
 ```
@@ -695,4 +695,29 @@ Removed jpg png lib problem.
 36. Problems caused by UvcMediaFoundationVideo's cmakefiles
 Uncheck BUILD_MediaFoundation in cmake. This can make pangolin.lib error gone.
 
-37. 
+37. vasprintf error of g2o. Copy those mingw to the error location
+https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/mingw-w64-crt/stdio/
+add
+```
+
+int vasprintf(char **  ret,
+	const char *  format,
+	va_list ap) {
+	int len;
+	/* Get Length */
+	len = _vsnprintf(NULL, 0, format, ap);
+	if (len < 0) return -1;
+	/* +1 for \0 terminator. */
+	*ret = (char*)malloc(len + 1);
+	/* Check malloc fail*/
+	if (!*ret) return -1;
+	/* Write String */
+	_vsnprintf(*ret, len + 1, format, ap);
+	/* Terminate explicitly */
+	(*ret)[len] = '\0';
+	return len;
+}
+```
+-g2o.lib generated successfully.
+
+38.
